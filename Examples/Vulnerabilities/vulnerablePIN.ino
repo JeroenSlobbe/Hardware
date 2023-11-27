@@ -4,6 +4,7 @@
 
 #define ROW_NUM 4
 #define COLUMN_NUM 4
+#define TRIGGER_LED 21
 #define RED_LED 22
 #define GREEN_LED 23
 
@@ -20,6 +21,7 @@ Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_
 void setup(){
   pinMode(RED_LED, OUTPUT);
   pinMode(GREEN_LED, OUTPUT);
+  pinMode(TRIGGER_LED, OUTPUT);
   Serial.begin(115200);
 }
 
@@ -37,10 +39,20 @@ void blinkGREEN()
   digitalWrite(GREEN_LED, LOW);   
 }
 
+void resetPINBuffer()
+{
+  int i;
+  for(i=0; i< charCounter; i++)
+  {
+    input_password[i] = '\0';
+  }
+  charCounter = 0;  
+}
+
 int vulnerableCheckPassword()
 {
   int i;
-  charCounter = 0;
+  
   for(i=0; i< sizeof(PASSWORD);i++)
   {
     delay(debugDelay);
@@ -55,11 +67,16 @@ int vulnerableCheckPassword()
 void loop()
 {
   char key = keypad.getKey();
+  int result;
   if(key)
   {
     if((key == '#' or charCounter > 4))
     {
-      if(vulnerableCheckPassword())
+      digitalWrite(TRIGGER_LED, HIGH);
+      result = vulnerableCheckPassword();
+      resetPINBuffer();
+      digitalWrite(TRIGGER_LED, LOW);
+      if(result)
       {
         blinkGREEN();
       }
