@@ -1,6 +1,7 @@
 // Requies keypad libary by Mark Stanly and Alexander Brevig
 
 #include <Keypad.h>
+#include "esp_clk.h"
 
 #define ROW_NUM 4
 #define COLUMN_NUM 4
@@ -12,6 +13,8 @@ const char *PASSWORD = "2580";
 char input_password[32];
 int charCounter = 0;
 int debugDelay = 0;
+unsigned long timeStart;
+unsigned long timeStop;
 
 char keys[ROW_NUM][COLUMN_NUM] = {{'1','2','3', 'A'},{'4','5','6', 'B'},{'7','8','9', 'C'},{'*','0','#', 'D'}};
 byte pin_rows[ROW_NUM] = {26, 27, 14, 12}; //connect to the row pinouts of the keypad
@@ -22,7 +25,9 @@ void setup(){
   pinMode(RED_LED, OUTPUT);
   pinMode(GREEN_LED, OUTPUT);
   pinMode(TRIGGER_LED, OUTPUT);
+  uint32_t cpu_freq = esp_clk_cpu_freq();
   Serial.begin(115200);
+  Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
 }
 
 void blinkRED()
@@ -72,10 +77,15 @@ void loop()
   {
     if((key == '#' or charCounter > 4))
     {
+      timeStart = micros();
+      Serial.println("Timestamp before password check: " + String(timeStart));
       digitalWrite(TRIGGER_LED, HIGH);
       result = vulnerableCheckPassword();
-      resetPINBuffer();
       digitalWrite(TRIGGER_LED, LOW);
+      timeStop = micros();
+      Serial.println("Timestamp after password check: " + String(timeStop) + " password check took: " + String(timeStop - timeStart) + " us");
+      
+      resetPINBuffer();
       if(result)
       {
         blinkGREEN();
