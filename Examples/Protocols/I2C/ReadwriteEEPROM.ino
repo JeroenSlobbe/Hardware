@@ -1,62 +1,121 @@
+// Requies keypad libary by Mark Stanly and Alexander Brevig
+
+#include <Keypad.h>
+#include "esp_clk.h"
 #include <Wire.h>
+
 #define eeprom 0x50 //defines the base address of the EEPROM
-#define I2C_SDA 21
-#define I2C_SCL 22
+#define I2C_SDA 32
+#define I2C_SCL 33
 
-void setup() {
+#define ROW_NUM 4
+#define COLUMN_NUM 4
+#define TRIGGER_LED 21
+#define RED_LED 22
+#define GREEN_LED 23
+
+//const char *PASSWORD = "2580";
+char PASSWORD[4];
+char input_password[32];
+int charCounter = 0;
+int debugDelay = 0;
+unsigned long timeStart;
+unsigned long timeStop;
+
+char keys[ROW_NUM][COLUMN_NUM] = {{'1','2','3', 'A'},{'4','5','6', 'B'},{'7','8','9', 'C'},{'*','0','#', 'D'}};
+byte pin_rows[ROW_NUM] = {26, 27, 14, 12}; //connect to the row pinouts of the keypad
+byte pin_column[COLUMN_NUM] = {17, 15, 4, 2}; //connect to the column pinouts of the keypad
+Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
+
+void setup(){
   Wire.begin(I2C_SDA, I2C_SCL);
-  Serial.begin(112600);
-  //writePINToEEPROM(eeprom,1,"1234");
-  //Serial.println(readEEPROMPIN(eeprom,1,4));
-  //dumpEEPROM(eeprom,65536);
+  pinMode(RED_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+  pinMode(TRIGGER_LED, OUTPUT);
+  uint32_t cpu_freq = esp_clk_cpu_freq();
+  Serial.begin(115200);
+  Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
+  readEEPROMPIN(eeprom,1);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-
-}
-
-
-void dumpEEPROM(int deviceaddress, int EEPROMSize)
+void blinkRED()
 {
-  for(int address = 0; address< EEPROMSize; address++) 
+  digitalWrite(RED_LED, HIGH);
+  delay(1000);
+  digitalWrite(RED_LED, LOW);   
+}
+
+void blinkGREEN()
+{
+  digitalWrite(GREEN_LED, HIGH);
+  delay(1000);
+  digitalWrite(GREEN_LED, LOW);   
+}
+
+void resetPINBuffer()
+{
+  int i;
+  for(i=0; i< charCounter; i++)
   {
-    Serial.print(readEEPROM(deviceaddress, address), HEX);
-    Serial.print(" ");
-    if(address % 8 == 0)
+    input_password[i] = '\0';
+  }
+  charCounter = 0;  
+}
+
+int vulnerableCheckPassword()
+{
+  int i;
+  
+  for(i=0; i< sizeof(PASSWORD);i++)
+  {
+    delay(debugDelay);
+    if(input_password[i] != PASSWORD[i])
     {
-      Serial.println(""); 
+      return 0;
     }
-  }  
+  }
+  return 1;
 }
 
-void writePINToEEPROM(int deviceaddress, unsigned int eeaddress, String PIN)
+void loop()
 {
-  char PINArray[PIN.length() +1];
-  PIN.toCharArray(PINArray, PIN.length() + 1);
-  for(int i = 0; i < sizeof(PINArray); i++)
+  char key = keypad.getKey();
+  int result;
+  if(key)
   {
-    writeEEPROM(deviceaddress, eeaddress + i, PINArray[i]);
-  }
+    if((key == '#' or charCounter > 4))
+    {
+      timeStart = micros();
+      Serial.println("Timestamp before password check: " + String(timeStart));
+      digitalWrite(TRIGGER_LED, HIGH);
+      result = vulnerableCheckPassword();
+      digitalWrite(TRIGGER_LED, LOW);
+      timeStop = micros();
+      Serial.println("Timestamp after password check: " + String(timeStop) + " password check took: " + String(timeStop - timeStart) + " us");
+      
+      resetPINBuffer();
+      if(result)
+      {
+        blinkGREEN();
+      }
+      else
+      {
+        blinkRED();
+      }
+    }
+    else
+    {
+      input_password[charCounter] = key;
+      charCounter = charCounter + 1;
+    }
+  }    
 }
 
-int readEEPROMPIN(int deviceaddress, unsigned int eeaddress, int PINLength ) {
-  char dataFromEEPROM[(PINLength)];
-  for (unsigned int i = 0; i < sizeof(dataFromEEPROM); i++)
+void readEEPROMPIN(int deviceaddress, unsigned int eeaddress) {
+  for (unsigned int i = 0; i < sizeof(PASSWORD); i++)
   {
-    dataFromEEPROM[i] = readEEPROM(deviceaddress, (eeaddress + i));
-    Serial.println("Reading: " + String(eeaddress + i) + " value: " + dataFromEEPROM[i]);
+    PASSWORD[i] = readEEPROM(deviceaddress, (eeaddress + i));
   }
-  return(atoi(dataFromEEPROM));
-}
-
-void writeEEPROM(int deviceaddress, unsigned int eeaddress, byte data ) {
-  Wire.beginTransmission(deviceaddress);
-  Wire.write((int)(eeaddress >> 8));      //writes the MSB
-  Wire.write((int)(eeaddress & 0xFF));    //writes the LSB
-  Wire.write(data);
-  Wire.endTransmission();
-  delay(5); //required as this is the maximum time to complete the write cycle
 }
 
 byte readEEPROM(int deviceaddress, unsigned int eeaddress ) {
@@ -70,4 +129,3 @@ byte readEEPROM(int deviceaddress, unsigned int eeaddress ) {
     rdata = Wire.read();
   return rdata;
 }
-
