@@ -2,6 +2,11 @@
 
 #include <Keypad.h>
 #include "esp_clk.h"
+#include <Wire.h>
+
+#define eeprom 0x50 //defines the base address of the EEPROM
+#define I2C_SDA 32
+#define I2C_SCL 33
 
 #define ROW_NUM 4
 #define COLUMN_NUM 4
@@ -9,7 +14,8 @@
 #define RED_LED 22
 #define GREEN_LED 23
 
-const char *PASSWORD = "2580";
+//const char *PASSWORD = "2580";
+char PASSWORD[4];
 char input_password[32];
 int charCounter = 0;
 int debugDelay = 0;
@@ -22,12 +28,14 @@ byte pin_column[COLUMN_NUM] = {17, 15, 4, 2}; //connect to the column pinouts of
 Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
 
 void setup(){
+  Wire.begin(I2C_SDA, I2C_SCL);
   pinMode(RED_LED, OUTPUT);
   pinMode(GREEN_LED, OUTPUT);
   pinMode(TRIGGER_LED, OUTPUT);
   uint32_t cpu_freq = esp_clk_cpu_freq();
   Serial.begin(115200);
   Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
+  readEEPROMPIN(eeprom,1);
 }
 
 void blinkRED()
@@ -101,4 +109,23 @@ void loop()
       charCounter = charCounter + 1;
     }
   }    
+}
+
+void readEEPROMPIN(int deviceaddress, unsigned int eeaddress) {
+  for (unsigned int i = 0; i < sizeof(PASSWORD); i++)
+  {
+    PASSWORD[i] = readEEPROM(deviceaddress, (eeaddress + i));
+  }
+}
+
+byte readEEPROM(int deviceaddress, unsigned int eeaddress ) {
+  byte rdata = 0xFF;
+  Wire.beginTransmission(deviceaddress);
+  Wire.write((int)(eeaddress >> 8));      //writes the MSB (>> is the right shift operator, shifting eeadress bytes with 8 positions to the right)
+  Wire.write((int)(eeaddress & 0xFF));    //writes the LSB (& is the bitwise AND operator)
+  Wire.endTransmission();
+  Wire.requestFrom(deviceaddress,1);
+  if (Wire.available()) 
+    rdata = Wire.read();
+  return rdata;
 }
