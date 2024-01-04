@@ -10,7 +10,11 @@ Pandoras box started as a hobby project to teach myself the basics of hardware s
 
 Note: you need to manually set the password on the EEPROM at address 1
 
-## Shoppinglist for Pandoras box
+## Getting Started
+
+### Shoppinglist 
+
+#### Shoppinglist for the box itself
 
 | ID | Item | URL |
 |-----:|-----------|-----------|
@@ -19,7 +23,7 @@ Note: you need to manually set the password on the EEPROM at address 1
 |     3| LED, 4x4 membrane, resistors| https://www.amazon.nl/ELEGOO-Complete-Ultimate-Gebruiken-Controller/dp/B01II76PDM|
 |     4| USB 2 Micro-USB    |https://www.amazon.nl/gp/product/B07NSMG2QQ|
 
-And the tools required to assemble the box
+####  Shoppinglist to assemble the box
 
 | ID | Item | URL |
 |-----:|-----------|-----------|
@@ -27,8 +31,10 @@ And the tools required to assemble the box
 |     2| Soldering tin    | https://www.amazon.nl/dp/B0C3GQ8Y7V?psc=1&ref=ppx_yo2ov_dt_b_product_details|
 
 
-## Shoppinglist for experiencing the attacks
+#### Shoppinglist for experiencing the attacks
 
-* EPicoScope: https://www.picotech.com/oscilloscope/2000/picoscope-2000-overview
-* EMultimeter: https://www.amazon.nl/dp/B09K5DMTQ3
-* ELogic analyser: https://www.amazon.nl/gp/product/B07D21GG6J
+| ID | Item | URL |
+|-----:|-----------|-----------|
+|     1| Picoscope    |https://www.picotech.com/oscilloscope/2000/picoscope-2000-overview|
+|     2| Multimeter    |https://www.amazon.nl/dp/B09K5DMTQ3|
+|     3| Logic analyser| https://www.amazon.nl/gp/product/B07D21GG6J|
