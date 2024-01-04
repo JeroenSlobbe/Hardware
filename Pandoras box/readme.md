@@ -46,6 +46,8 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 
 * Arduino IDE: https://www.arduino.cc/en/software
   ```
+  File -> Preferences -> Additional board Manager URL -> https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+  Tools -> Board -> Board Manager -> esp32/Espressif Systems version 2.0.11
   keypad libary by Mark Stanly and Alexander Brevig
   ```
 * PCB design software KICAD: https://www.kicad.org/download/
