@@ -12,7 +12,7 @@ Note: you need to manually set the password on the EEPROM at address 1
 
 ## Getting Started
 
-### Shoppinglist 
+### Hardware 
 
 #### Shoppinglist for the box itself
 
@@ -38,3 +38,8 @@ Note: you need to manually set the password on the EEPROM at address 1
 |     1| Picoscope    |https://www.picotech.com/oscilloscope/2000/picoscope-2000-overview|
 |     2| Multimeter    |https://www.amazon.nl/dp/B09K5DMTQ3|
 |     3| Logic analyser| https://www.amazon.nl/gp/product/B07D21GG6J|
+
+### Software
+
+* Python3
+  ```pip install picosdk
