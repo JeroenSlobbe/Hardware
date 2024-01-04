@@ -42,4 +42,6 @@ Note: you need to manually set the password on the EEPROM at address 1
 ### Software
 
 * Python3
-  ```pip install picosdk
+  ```
+  pip install picosdk
+  ```
