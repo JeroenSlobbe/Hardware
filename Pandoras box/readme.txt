@@ -5,3 +5,12 @@ Pandoras box started as a hobby project to teach myself the basics of hardware s
 * Taking off the external EEPROM and reading its external memory;
 * Dumping the ESP32 firwmare to identify board information;
 * A basic timing attack against the PIN protection.
+
+Note: you need to manually set the password on the EEPROM at address 1
+
+Shoppinglist:
+
+EEPROM: https://www.amazon.nl/Reland-Sun-24LC16B-I-24LC128-I-24LC512-I/dp/B09JJSLCLR?th=1
+ESP32: https://www.amazon.nl/gp/product/B071P98VTG/
+LEDs, 4x4 membrane, resistors: https://www.amazon.nl/ELEGOO-Complete-Ultimate-Gebruiken-Controller/dp/B01II76PDM
+
