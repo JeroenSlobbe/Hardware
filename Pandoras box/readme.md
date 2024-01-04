@@ -41,6 +41,12 @@ Note: you need to manually set the password on the EEPROM at address 1
 
 ### Software
 
+* PCB design software KICAD: https://www.kicad.org/download/
+* Picoscope software: https://www.picotech.com/downloads
+  ```
+  CMD.exe -> SystemPropertiesAdvanced -> 'Environment Variables' -> PATH -> [add path of pico installation: c:\program files\pico technology\PicoScope 7 T&M Stable]
+  reboot
+  ```
 * Python3
   ```
   pip install picosdk
