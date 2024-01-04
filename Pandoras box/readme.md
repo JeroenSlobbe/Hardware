@@ -56,6 +56,7 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
   CMD.exe -> SystemPropertiesAdvanced -> 'Environment Variables' -> PATH -> [add path of pico installation: c:\program files\pico technology\PicoScope 7 T&M Stable]
   reboot
   ```
+* Putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 * Python3
   ```
   pip install picosdk
