@@ -66,6 +66,6 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 <!-- CONTACT -->
 ## Contact
 
-JeroenSlobbe - [@JeroenSlobbe](https://twitter.com/JeroenSlobbe) -
+Jeroen Slobbe - [@JeroenSlobbe](https://twitter.com/JeroenSlobbe) -
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
