@@ -13,6 +13,7 @@ Note: you need to manually set the password on the EEPROM at address 1
 ## Getting Started
 
 ### Hardware 
+To order the board, you need to convert the <a href="https://github.com/JeroenSlobbe/Hardware/tree/main/Pandoras%20box/KICAD%20design/1.0">KICAD design files</a> to Gerber files. This can be done in KICAD by opening the PCB editor and by clicking: File -> Fabrication outputs -> Gerbers (.gbs) -> Plot + Generate drill files. After zipping these files, you can upload them to <a href="https://jlcpcb.com/"> JLCPCB </a> (or your favority PCB manufacturer) and place your order.
 
 #### Shoppinglist for the box itself
 
