@@ -23,6 +23,8 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 |     2| ESP32    |https://www.amazon.nl/gp/product/B071P98VTG/|
 |     3| LED, 4x4 membrane, resistors| https://www.amazon.nl/ELEGOO-Complete-Ultimate-Gebruiken-Controller/dp/B01II76PDM|
 |     4| USB 2 Micro-USB    |https://www.amazon.nl/gp/product/B07NSMG2QQ|
+|     5| PIN headers      |https://www.amazon.nl/dp/B07XXXNH9V?psc=1&ref=ppx_yo2ov_dt_b_product_details |
+|     5| Horizontal PIN headers     | https://www.amazon.nl/dp/B07CWSXY7P |
 
 ####  Shoppinglist to assemble the box
 
