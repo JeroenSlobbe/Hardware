@@ -57,4 +57,5 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 * Python3
   ```
   pip install picosdk
+  pip install esptool
   ```
