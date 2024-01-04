@@ -44,6 +44,10 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 
 ### Software
 
+* Arduino IDE: https://www.arduino.cc/en/software
+  ```
+  keypad libary by Mark Stanly and Alexander Brevig
+  ```
 * PCB design software KICAD: https://www.kicad.org/download/
 * Picoscope software: https://www.picotech.com/downloads
   ```
