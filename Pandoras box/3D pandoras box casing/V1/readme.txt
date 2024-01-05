@@ -1,0 +1,1 @@
+Design created in: https://www.freecad.org/downloads.php, sliced with creality: https://www.creality.com/pages/download-software?spm=..page_1934481.header_1.1&spm_prev=..page_1934481.header_1.1 and printed with the ender 3 v2
