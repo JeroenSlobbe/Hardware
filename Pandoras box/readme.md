@@ -63,6 +63,28 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
   pip install esptool
   ```
 
+### Roadmap
+- [ ] KICAD: Standardize the PCB support holes distance (e.g. same distance for all 4 corner holes between the edged of the board)  
+- [ ] KICAD: Standardize the PCB support holes diameter (e.g. radius of 2.5mm instead of 2.54mm)
+- [ ] KICAD: Use TXD and RXD for UART communication, freeing up GPIO18 and GPIO19 for other purposes
+- [ ] KICAD: Add GPIO numbering to silk
+- [ ] KICAD: Add MicroSD card mount / resistors to board and connect to GPIO 17, GPIO16 , GPIO 18, GPIO19
+- [ ] KICAD: Add pins for SPI sniffing (CS, MOSI, MISO, CLK)
+- [ ] KICAD: Add button(s) for initiating SPI/UART/I2C reading
+- [ ] KICAD: See if SMD resistors can be used, to safe space and let the board look more slick
+- [ ] ARDUINO: Implement WiFi AP so users can connect to Pandoras box
+- [ ] ARDUINO: Implement Webserver so users can read about pandoras box (files should be obtained via the SD-CARD)
+- [ ] ARDUINO: Implment buttons for initaiting the communication
+- [ ] 3D: add ornaments to make the box look more fancy and create a lid to enusre the box can be closed
+- [ ] HTML: Write tutorials for various attacks & defenses
+- [ ] HTML: Obtain copy of MITTRE-EMB3D and map tutorial to this framework
+- [ ] PYTHON: Write exploit for if only flash encryption is enabled
+- [ ] VULNERABILITY: Create vulnerable RSA functionality
+- [ ] VULNERABILITY: Create a computation in which glitching is easy and visible
+- [ ] VULNERABILITY: Look for inspiration: https://i.blackhat.com/USA-22/Wednesday/US-22-ABDELLATIF-Unlimited-Results-Breaking-Firmware-Encryption.pdf / https://www.slideshare.net/ssuser6e61b3/eu19limitedresultsfatalfuryonesp32timetoreleasehardwareexploitspdf / https://rtfm.newae.com/Capture/ChipWhisperer-Nano/
+- [ ] GENERAL: see if ESP32-devboard can be decomposed to make board-layout more compelling
+
+
 <!-- CONTACT -->
 ## Contact
 
