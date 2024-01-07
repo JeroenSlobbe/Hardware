@@ -83,6 +83,7 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 - [ ] PYTHON: Write exploit for if only flash encryption is enabled
 - [ ] VULNERABILITY: Create vulnerable RSA functionality
 - [ ] VULNERABILITY: Create a computation in which glitching is easy and visible
+- [ ] VULNERABILITY: ARDUINO: Downgrade WPA2 to WPA or WEP https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html#_CPPv416wifi_auth_mode_t
 - [ ] VULNERABILITY: Look for inspiration: https://i.blackhat.com/USA-22/Wednesday/US-22-ABDELLATIF-Unlimited-Results-Breaking-Firmware-Encryption.pdf / https://www.slideshare.net/ssuser6e61b3/eu19limitedresultsfatalfuryonesp32timetoreleasehardwareexploitspdf / https://rtfm.newae.com/Capture/ChipWhisperer-Nano/
 - [ ] GENERAL: see if ESP32-devboard can be decomposed to make board-layout more compelling
 
