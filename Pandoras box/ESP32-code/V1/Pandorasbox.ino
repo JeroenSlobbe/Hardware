@@ -7,6 +7,8 @@
 // UART communication
 #define RX_PIN 18
 #define TX_PIN 19
+#define RX_PINB 3  // U0RXD, e.x. RX on devboard pinout, also the pins used if you don't specify specific pins for Serial.begin(baudrate)
+#define TX_PINB 1  // more info: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf
 
 // I2C communication
 #define eeprom 0x50 //defines the base address of the EEPROM
@@ -40,7 +42,8 @@ void setup(){
   pinMode(TRIGGER_LED, OUTPUT);
   digitalWrite(TRIGGER_LED, LOW); //By default PIN 15 is HIGH, its the ESP32 pin that hides the boot message. Making it low, shows the boot message again and ensures normal working.
   uint32_t cpu_freq = esp_clk_cpu_freq();
-  Serial.begin(115200);
+
+  Serial.begin(115200, SERIAL_8N1, RX_PINB, TX_PINB);
   Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
   readEEPROMPIN(eeprom,1);
   Serial.println("Obtaining password from external EEPROM: " + String(PASSWORD));
