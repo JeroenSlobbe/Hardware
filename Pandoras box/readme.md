@@ -72,10 +72,12 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 - [ ] KICAD: Add pins for SPI sniffing (CS, MOSI, MISO, CLK)
 - [ ] KICAD: Add button(s) for initiating SPI/UART/I2C reading
 - [ ] KICAD: See if SMD resistors can be used, to safe space and let the board look more slick
-- [ ] ARDUINO: Implement WiFi AP so users can connect to Pandoras box
+- [x] ARDUINO: Implement WiFi AP so users can connect to Pandoras box
 - [ ] ARDUINO: Implement Webserver so users can read about pandoras box (files should be obtained via the SD-CARD)
 - [ ] ARDUINO: Implment buttons for initaiting the communication
-- [ ] 3D: add ornaments to make the box look more fancy and create a lid to enusre the box can be closed
+- [ ] 3D: add ornaments to make the box look more fancy
+- [ ] 3D: Create a lid to enusre the box can be closed
+- [ ] 3D: Move ESP32 mouth to right to improve allignment
 - [ ] HTML: Write tutorials for various attacks & defenses
 - [ ] HTML: Obtain copy of MITTRE-EMB3D and map tutorial to this framework
 - [ ] PYTHON: Write exploit for if only flash encryption is enabled
