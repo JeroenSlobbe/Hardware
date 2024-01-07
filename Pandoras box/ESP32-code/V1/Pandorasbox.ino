@@ -4,6 +4,11 @@
 #include "esp_clk.h"
 #include <Wire.h>
 
+// UART communication
+#define RX_PIN 18
+#define TX_PIN 19
+
+// I2C communication
 #define eeprom 0x50 //defines the base address of the EEPROM
 #define I2C_SDA 4
 #define I2C_SCL 2
@@ -14,7 +19,6 @@
 #define RED_LED 22
 #define GREEN_LED 23
 
-//const char *PASSWORD = "2580";
 char PASSWORD[4];
 char input_password[32];
 int charCounter = 0;
@@ -27,6 +31,8 @@ byte pin_rows[ROW_NUM] = {13, 12, 14, 27}; //connect to the row pinouts of the k
 byte pin_column[COLUMN_NUM] = {26, 25, 33, 32}; //connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
 
+#define LONGREAD "According to Hesiod, when Prometheus stole fire from heaven, Zeus, the king of the gods, took vengeance by presenting Pandora to Prometheus' brother Epimetheus. Pandora opened a jar left in her care containing sickness, death and many other unspecified evils which were then released into the world. Though she hastened to close the container, only one thing was left behind usually translated as Hope, though it could also have the pessimistic meaning of 'deceptive expectation'. From this story has grown the idiom 'to open a Pandora's box', meaning to do or start something that will cause many unforeseen problems. A modern, more colloquial equivalent is 'to open a can of worms'. Pandora's box is a metaphor for something that brings about great troubles or misfortune, but also holds hope. This PCB contains many of nowadays common hardware security vulnerabilities and the hope that by showing how to spot them, they will disappear over time."
+
 void setup(){
   Wire.begin(I2C_SDA, I2C_SCL);
   pinMode(RED_LED, OUTPUT);
@@ -38,6 +44,8 @@ void setup(){
   Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
   readEEPROMPIN(eeprom,1);
   Serial.println("Obtaining password from external EEPROM: " + String(PASSWORD));
+  Serial2.begin(115200, SERIAL_8N1, RX_PIN, TX_PIN);
+  Serial2.write(LONGREAD);
 }
 
 void blinkRED()
