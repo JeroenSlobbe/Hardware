@@ -3,6 +3,14 @@
 #include <Keypad.h>
 #include "esp_clk.h"
 #include <Wire.h>
+#include <WiFi.h>
+
+// ESP32 as Access Point
+const char* ssid     = "Pandorasbox WiFi access";
+const char* password = "PBPasswordWIFI";
+IPAddress ip(192, 168, 0, 2);
+IPAddress gateway(192, 168, 0, 1);
+IPAddress subnet(255, 255, 255, 0);
 
 // UART communication
 #define RX_PIN 18
@@ -45,9 +53,18 @@ void setup(){
 
   Serial.begin(115200, SERIAL_8N1, RX_PINB, TX_PINB);
   Serial.println("Starting application, running on an ESP32 with CPU frequency of: " + String(cpu_freq) + "hz");
+
+  // Get PIN from EEPROM
   readEEPROMPIN(eeprom,1);
   Serial.println("Obtaining password from external EEPROM: " + String(PASSWORD));
   Serial2.begin(115200, SERIAL_8N1, RX_PIN, TX_PIN);
+
+  // Setup WiFi Access Point
+  WiFi.softAPConfig(ip, gateway, subnet);
+  WiFi.softAP(ssid, password);
+  Serial.println("WiFi in the air, pandoras box on IP: " + WiFi.softAPIP().toString());
+
+  // Putting some UART comms out there
   Serial2.write(LONGREAD);
 }
 
