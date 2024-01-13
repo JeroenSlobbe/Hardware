@@ -41,6 +41,8 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 |     1| Picoscope    |https://www.picotech.com/oscilloscope/2000/picoscope-2000-overview|
 |     2| Multimeter    |https://www.amazon.nl/dp/B09K5DMTQ3|
 |     3| Logic analyser| https://www.amazon.nl/gp/product/B07D21GG6J|
+|     4| USB 2 TTL | https://www.amazon.nl/dp/B089QJZ51Z|
+
 
 ### Software
 
@@ -74,7 +76,7 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 - [ ] KICAD: See if SMD resistors can be used, to safe space and let the board look more slick
 - [x] ARDUINO: Implement WiFi AP so users can connect to Pandoras box
 - [ ] ARDUINO: Implement Webserver so users can read about pandoras box (files should be obtained via the SD-CARD)
-- [ ] ARDUINO: Implment buttons for initaiting the communication
+- [ ] ARDUINO: Implement buttons for initaiting the communication
 - [ ] 3D: add ornaments to make the box look more fancy
 - [ ] 3D: Create a lid to enusre the box can be closed
 - [ ] 3D: Move ESP32 mouth to right to improve allignment
