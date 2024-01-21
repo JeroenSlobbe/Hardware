@@ -77,6 +77,7 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 - [x] ARDUINO: Implement WiFi AP so users can connect to Pandoras box
 - [ ] ARDUINO: Implement Webserver so users can read about pandoras box (files should be obtained via the SD-CARD)
 - [ ] ARDUINO: Implement buttons for initaiting the communication
+- [ ] ARDUINO: rewrite all code to work in Eclise and follows the full ESP-IDF compilitaion process to increase control over bootloader / application
 - [ ] 3D: add ornaments to make the box look more fancy
 - [ ] 3D: Create a lid to enusre the box can be closed
 - [ ] 3D: Move ESP32 mouth to right to improve allignment
@@ -86,7 +87,11 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 - [ ] VULNERABILITY: Create vulnerable RSA functionality
 - [ ] VULNERABILITY: Create a computation in which glitching is easy and visible
 - [ ] VULNERABILITY: ARDUINO: Downgrade WPA2 to WPA or WEP https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html#_CPPv416wifi_auth_mode_t
-- [ ] VULNERABILITY: Look for inspiration: https://i.blackhat.com/USA-22/Wednesday/US-22-ABDELLATIF-Unlimited-Results-Breaking-Firmware-Encryption.pdf / https://www.slideshare.net/ssuser6e61b3/eu19limitedresultsfatalfuryonesp32timetoreleasehardwareexploitspdf / https://rtfm.newae.com/Capture/ChipWhisperer-Nano/
+- [ ] VULNERABILITY: Look for inspiration:
+* https://i.blackhat.com/USA-22/Wednesday/US-22-ABDELLATIF-Unlimited-Results-Breaking-Firmware-Encryption.pdf
+* https://www.slideshare.net/ssuser6e61b3/eu19limitedresultsfatalfuryonesp32timetoreleasehardwareexploitspdf
+* https://rtfm.newae.com/Capture/ChipWhisperer-Nano/
+* https://ryancor.medium.com/pulling-bits-from-rom-silicon-die-images-unknown-architecture-b73b6b0d4e5d
 - [ ] GENERAL: see if ESP32-devboard can be decomposed to make board-layout more compelling
 
 
