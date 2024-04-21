@@ -25,6 +25,13 @@ To order the board, you need to convert the <a href="https://github.com/JeroenSl
 |     4| USB 2 Micro-USB    |https://www.amazon.nl/gp/product/B07NSMG2QQ|
 |     5| PIN headers      |https://www.amazon.nl/dp/B07XXXNH9V |
 |     5| Horizontal PIN headers     | https://www.amazon.nl/dp/B07CWSXY7P |
+|     6| AMS117 voltage regulator | https://www.amazon.nl/dp/B019JV856Q?psc=1&ref=ppx_yo2ov_dt_b_product_details |
+|     7| Buttons | https://www.amazon.nl/dp/B09VWW3NB3?ref=ppx_yo2ov_dt_b_product_details&th=1|
+|     8| MicroUSB Sockets | https://www.amazon.nl/dp/B08XN9CH8N?psc=1&ref=ppx_yo2ov_dt_b_product_details |
+|     9| SMD capacitators & Resistors | https://www.amazon.nl/dp/B08QGD9G7C?psc=1&ref=ppx_yo2ov_dt_b_product_details |
+|    10| SMD SD Socket | https://www.amazon.nl/gp/product/B07D8H754H/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1 |
+|    11| ESP32 shield | https://www.amazon.nl/gp/product/B07R3ZGR2P/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&th=1 |
+
 
 ####  Shoppinglist to assemble the box
 
