@@ -20,4 +20,4 @@ Components to buy:
 
 The end result: 
 
-![Original circuit](https://github.com/JeroenSlobbe/Hardware/blob/main/MicroUSB_5V_to_3.3V/img/pcb.png?raw=true)
+![Resulting PCB](https://github.com/JeroenSlobbe/Hardware/blob/main/MicroUSB_5V_to_3.3V/img/PCB.png?raw=true)
