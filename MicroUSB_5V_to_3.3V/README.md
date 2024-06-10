@@ -17,7 +17,7 @@ Components to buy:
 
 * Decission: to use a [via](https://en.wikipedia.org/wiki/Via_(electronics)) to connect the AMS1117 3.3V output towards the pin. Although it would be possible to wire it, such that no wires overlap, I wanted to use a via for educational purposes;
 * Improvement: redo wiring, so that the ground and vcc input don't need to cross within the microUSB footprint;
-* Improvement: add VCC and GND symbol;
+* Improvement: add VCC, GND and PWR_FLAG symbols, as well as the NO_CONNECT flag for pins of the USB not being used;
 
 The end result: 
 
